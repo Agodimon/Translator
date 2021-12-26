@@ -1,7 +1,9 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.view.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bignerdranch.android.translator.model.data.AppState
+import com.bignerdranch.android.translator.presenter.Presenter
 
 abstract class BaseActivity<T : AppState> : AppCompatActivity(), View {
 

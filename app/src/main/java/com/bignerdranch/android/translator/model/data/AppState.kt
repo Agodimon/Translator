@@ -1,4 +1,4 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.model.data
 
 sealed class AppState {
 

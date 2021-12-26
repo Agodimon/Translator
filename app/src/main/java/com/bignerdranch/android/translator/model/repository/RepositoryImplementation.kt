@@ -1,4 +1,7 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.model.repository
+
+import com.bignerdranch.android.translator.model.data.DataModel
+import com.bignerdranch.android.translator.model.datasource.DataSource
 
 import io.reactivex.Observable
 

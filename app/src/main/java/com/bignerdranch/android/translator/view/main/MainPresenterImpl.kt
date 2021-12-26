@@ -1,5 +1,12 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.view.main
 
+import com.bignerdranch.android.translator.model.data.AppState
+import com.bignerdranch.android.translator.model.datasource.DataSourceLocal
+import com.bignerdranch.android.translator.model.datasource.DataSourceRemote
+import com.bignerdranch.android.translator.model.repository.RepositoryImplementation
+import com.bignerdranch.android.translator.presenter.Presenter
+import com.bignerdranch.android.translator.rx.SchedulerProvider
+import com.bignerdranch.android.translator.view.base.View
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 

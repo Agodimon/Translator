@@ -1,7 +1,9 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.presenter
 
 import io.reactivex.Observable
 
+
 interface Interactor<T> {
+
     fun getData(word: String, fromRemoteSource: Boolean): Observable<T>
 }

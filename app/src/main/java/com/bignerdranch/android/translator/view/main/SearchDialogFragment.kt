@@ -1,4 +1,4 @@
-package com.bignerdranch.android.translator
+package com.bignerdranch.android.translator.view.main
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bignerdranch.android.translator.databinding.SearchDialogFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
 
 class SearchDialogFragment : BottomSheetDialogFragment() {
 
