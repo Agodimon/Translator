@@ -1,9 +1,10 @@
 package com.bignerdranch.android.translator.view.main
 
-import com.bignerdranch.android.translator.presenter.Interactor
+
 import com.bignerdranch.android.translator.model.data.AppState
 import com.bignerdranch.android.translator.model.data.DataModel
 import com.bignerdranch.android.translator.model.repository.Repository
+import com.bignerdranch.android.translator.viewmodel.Interactor
 import io.reactivex.Observable
 
 class MainInteractor(
