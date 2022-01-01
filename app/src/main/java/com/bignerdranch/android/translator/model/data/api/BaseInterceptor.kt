@@ -1,4 +1,4 @@
-package com.bignerdranch.android.translator.model.datasource
+package com.bignerdranch.android.translator.model.data.api
 
 import okhttp3.Interceptor
 import okhttp3.Response
