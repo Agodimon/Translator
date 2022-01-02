@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
     internal lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var binding: ActivityMainBinding
-    override lateinit var model: MainViewModel
+
     private val adapter: MainAdapter by lazy { MainAdapter(onListItemClickListener) }
     private val fabClickListener: View.OnClickListener =
         View.OnClickListener {
@@ -33,12 +33,20 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
             searchDialogFragment.setOnSearchClickListener(onSearchClickListener)
             searchDialogFragment.show(supportFragmentManager, BOTTOM_SHEET_FRAGMENT_DIALOG_TAG)
         }
+
     private val onListItemClickListener: MainAdapter.OnListItemClickListener =
         object : MainAdapter.OnListItemClickListener {
             override fun onItemClick(data: DataModel) {
                 Toast.makeText(this@MainActivity, data.text, Toast.LENGTH_SHORT).show()
             }
         }
+
+    override val model: MainViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(
+            MainViewModel::class.java
+        )
+    }
+
     private val onSearchClickListener: SearchDialogFragment.OnSearchClickListener =
         object : SearchDialogFragment.OnSearchClickListener {
             override fun onClick(searchWord: String) {
@@ -52,12 +60,13 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        model = viewModelFactory.create(MainViewModel::class.java)
+        if(savedInstanceState == null) model
         model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
         binding.searchFab.setOnClickListener(fabClickListener)
         binding.mainActivityRecyclerview.layoutManager = LinearLayoutManager(applicationContext)
