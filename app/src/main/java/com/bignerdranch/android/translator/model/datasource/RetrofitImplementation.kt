@@ -2,6 +2,8 @@ package com.bignerdranch.android.translator.model.datasource
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.bignerdranch.android.translator.model.data.DataModel
+import com.bignerdranch.android.translator.model.data.api.ApiService
+import com.bignerdranch.android.translator.model.data.api.BaseInterceptor
 import io.reactivex.Observable
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

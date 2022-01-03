@@ -1,7 +1,6 @@
-package com.bignerdranch.android.translator.presenter
+package com.bignerdranch.android.translator.viewmodel
 
 import io.reactivex.Observable
-
 
 interface Interactor<T> {
 
