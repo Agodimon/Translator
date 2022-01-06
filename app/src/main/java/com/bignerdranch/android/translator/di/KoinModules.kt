@@ -10,20 +10,13 @@ import com.bignerdranch.android.translator.view.main.MainViewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
+
 val application = module {
-    single<Repository<List<DataModel>>>(named(NAME_REMOTE)) {
-        RepositoryImplementation(
-            RetrofitImplementation()
-        )
-    }
-    single<Repository<List<DataModel>>>(named(NAME_LOCAL)) {
-        RepositoryImplementation(
-            RoomDataBaseImplementation()
-        )
-    }
+    single<Repository<List<DataModel>>>(named(NAME_REMOTE)) {RepositoryImplementation(RetrofitImplementation())}
+    single<Repository<List<DataModel>>>(named(NAME_LOCAL)) {RepositoryImplementation(RoomDataBaseImplementation())}
 }
 
 val mainScreen = module {
-    factory { MainInteractor(get(named(NAME_REMOTE)), get(named(NAME_LOCAL))) }
-    factory { MainViewModel(get()) }
+    factory {MainInteractor(repositoryRemote=get(named(NAME_REMOTE)),repositoryLocal=get(named(NAME_LOCAL)))}
+    factory {MainViewModel(get()) }
 }
