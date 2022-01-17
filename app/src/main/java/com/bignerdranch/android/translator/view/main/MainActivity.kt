@@ -7,11 +7,13 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.translator.R
+import com.bignerdranch.android.translator.convertMeaningsToString
 import com.bignerdranch.android.translator.databinding.ActivityMainBinding
 import com.bignerdranch.android.translator.model.data.AppState
 import com.bignerdranch.android.translator.model.data.DataModel
 import com.bignerdranch.android.translator.utils.network.isOnline
 import com.bignerdranch.android.translator.view.base.BaseActivity
+import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,7 +35,14 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
     private val onListItemClickListener: MainAdapter.OnListItemClickListener =
         object : MainAdapter.OnListItemClickListener {
             override fun onItemClick(data: DataModel) {
-                Toast.makeText(this@MainActivity, data.text, Toast.LENGTH_SHORT).show()
+                startActivity(
+                    DescriptionActivity.getIntent(
+                        this@MainActivity,
+                        data.text!!,
+                        convertMeaningsToString(data.meanings!!),
+                        data.meanings[0].imageUrl
+                    )
+                )
             }
         }
 
