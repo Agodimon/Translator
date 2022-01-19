@@ -1,22 +1,35 @@
 package com.bignerdranch.android.translator.di
 
+import androidx.room.Room
 import com.bignerdranch.android.translator.model.data.DataModel
 import com.bignerdranch.android.translator.model.datasource.RetrofitImplementation
 import com.bignerdranch.android.translator.model.datasource.RoomDataBaseImplementation
 import com.bignerdranch.android.translator.model.repository.Repository
 import com.bignerdranch.android.translator.model.repository.RepositoryImplementation
+import com.bignerdranch.android.translator.model.repository.RepositoryImplementationLocal
+import com.bignerdranch.android.translator.model.repository.RepositoryLocal
+import com.bignerdranch.android.translator.room.HistoryDataBase
+import com.bignerdranch.android.translator.view.history.HistoryInteractor
+import com.bignerdranch.android.translator.view.history.HistoryViewModel
 import com.bignerdranch.android.translator.view.main.MainInteractor
 import com.bignerdranch.android.translator.view.main.MainViewModel
-import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 
 val application = module {
-    single<Repository<List<DataModel>>>(named(NAME_REMOTE)) {RepositoryImplementation(RetrofitImplementation())}
-    single<Repository<List<DataModel>>>(named(NAME_LOCAL)) {RepositoryImplementation(RoomDataBaseImplementation())}
+    single { Room.databaseBuilder(get(), HistoryDataBase::class.java, "HistoryDB").build() }
+    single { get<HistoryDataBase>().historyDao() }
+    single<Repository<List<DataModel>>> { RepositoryImplementation(RetrofitImplementation()) }
+    single<RepositoryLocal<List<DataModel>>> { RepositoryImplementationLocal(RoomDataBaseImplementation(get()))
+    }
 }
 
 val mainScreen = module {
-    factory {MainInteractor(repositoryRemote=get(named(NAME_REMOTE)),repositoryLocal=get(named(NAME_LOCAL)))}
-    factory {MainViewModel(get()) }
+    factory { MainViewModel(get()) }
+    factory { MainInteractor(get(), get()) }
+}
+
+val historyScreen = module {
+    factory { HistoryViewModel(get()) }
+    factory { HistoryInteractor(get(), get()) }
 }
