@@ -30,6 +30,8 @@ android {
 }
 dependencies {
     implementation project(Modules.utils)
+    implementation project(Modules.model)
+
 // AndroidX
     implementation Design.appcompat
 // Design
@@ -65,5 +67,5 @@ dependencies {
     implementation Retrofit.converter_gson
     implementation Retrofit.adapter_coroutines
     implementation Retrofit.logging_interceptor
-    
+
 }
