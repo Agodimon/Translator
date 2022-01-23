@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bignerdranch.android.translator.R
-import com.bignerdranch.android.translator.databinding.SearchDialogFragmentBinding
-import com.bignerdranch.android.translator.getEmptyString
+import com.bignerdranch.android.utils.getEmptyString
+
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.search_dialog_fragment.*

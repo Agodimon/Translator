@@ -1,10 +1,11 @@
-package com.bignerdranch.android.translator.view.history
+package com.bignerdranch.android.historyscreen.view.history
 
-import com.bignerdranch.android.translator.model.data.AppState
-import com.bignerdranch.android.translator.model.data.DataModel
-import com.bignerdranch.android.translator.model.repository.Repository
-import com.bignerdranch.android.translator.model.repository.RepositoryLocal
-import com.bignerdranch.android.translator.viewmodel.Interactor
+import com.bignerdranch.android.core.viewmodel.Interactor
+import com.bignerdranch.android.model.data.AppState
+import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.repository.Repository
+import com.bignerdranch.android.repository.RepositoryLocal
+
 
 class HistoryInteractor(
     private val repositoryRemote: Repository<List<DataModel>>,

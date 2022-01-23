@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+dependencies {
+    implementation project(Modules.model)
+    implementation project(Modules.repository)
+    implementation project(Modules.core)
+
+    //Design
+    implementation (Design.appcompat)
+    implementation (Design.material)
+
+    //Kotlin
+    implementation (Kotlin.core)
+    implementation (Kotlin.stdlib)
+    implementation (Kotlin.coroutines_core)
+    implementation (Kotlin.coroutines_android)
+
+    //Koin core features
+    implementation Koin.koin_core
+    //Koin main features for Android (Scope,ViewModel ...)
+    implementation Koin.koin_android
+    //Koin Java Compatibility
+    implementation Koin.koin_android_compat
+
+
+
+    //Test
+    testImplementation (TestImpl.junit)
+    androidTestImplementation (TestImpl.runner)
+    androidTestImplementation (TestImpl.espresso)
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

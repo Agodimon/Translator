@@ -1,12 +1,11 @@
-package com.bignerdranch.android.core
+package com.bignerdranch.android.core.viewmodel
 
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bignerdranch.android.core.R
 import com.bignerdranch.android.core.databinding.LoadingLayoutBinding
-import com.bignerdranch.android.core.viewmodel.BaseViewModel
-import com.bignerdranch.android.core.viewmodel.Interactor
 import com.bignerdranch.android.model.data.AppState
 import com.bignerdranch.android.model.data.DataModel
 import com.bignerdranch.android.utils.network.isOnline
@@ -56,7 +55,7 @@ abstract class BaseActivity<T : AppState, I : Interactor<T>> : AppCompatActivity
                 if (appState.progress != null) {
                     binding.progressBarHorizontal.visibility = View.VISIBLE
                     binding.progressBarRound.visibility = View.GONE
-                    binding.progressBarHorizontal.progress = appState.progress
+                    binding.progressBarHorizontal.progress = appState.progress!!
                 } else {
                     binding.progressBarHorizontal.visibility = View.GONE
                     binding.progressBarRound.visibility = View.VISIBLE

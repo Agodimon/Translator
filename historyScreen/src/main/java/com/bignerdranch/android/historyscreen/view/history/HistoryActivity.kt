@@ -1,13 +1,13 @@
-package com.bignerdranch.android.translator.view.history
+package com.bignerdranch.android.historyscreen.view.history
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import com.bignerdranch.android.translator.databinding.ActivityHistoryBinding
-import com.bignerdranch.android.translator.model.data.AppState
-import com.bignerdranch.android.translator.model.data.DataModel
-import com.bignerdranch.android.translator.view.base.BaseActivity
 
+import com.bignerdranch.android.core.viewmodel.BaseActivity
+import com.bignerdranch.android.historyscreen.databinding.ActivityHistoryBinding
+import com.bignerdranch.android.model.data.AppState
+import com.bignerdranch.android.model.data.DataModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class HistoryActivity : BaseActivity<AppState, HistoryInteractor>() {
 
@@ -39,7 +39,7 @@ class HistoryActivity : BaseActivity<AppState, HistoryInteractor>() {
         }
         val viewModel: HistoryViewModel by viewModel()
         model = viewModel
-        model.subscribe().observe(this@HistoryActivity, Observer<AppState> { renderData(it) })
+        model.subscribe().observe(this@HistoryActivity, { renderData(it) })
     }
 
     private fun initViews() {

@@ -33,6 +33,7 @@ dependencies {
     implementation project(Modules.model)
     implementation project(Modules.repository)
     implementation project(Modules.core)
+    implementation project(Modules.historyScreen)
 
 
 // AndroidX
@@ -47,6 +48,8 @@ dependencies {
     implementation Kotlin.coroutines_core
     implementation Kotlin.coroutines_android
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //Koin core features
     implementation Koin.koin_core
     //Koin main features for Android (Scope,ViewModel ...)
@@ -57,6 +60,8 @@ dependencies {
     implementation Coil.coil
 // Room
     implementation Room.runtime
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     kapt Room.compiler
     implementation Room.room_ktx
     testImplementation TestImpl.junit

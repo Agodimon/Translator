@@ -1,16 +1,12 @@
 package com.bignerdranch.android.translator.di
 
 import androidx.room.Room
-import com.bignerdranch.android.translator.model.data.DataModel
-import com.bignerdranch.android.translator.model.datasource.RetrofitImplementation
-import com.bignerdranch.android.translator.model.datasource.RoomDataBaseImplementation
-import com.bignerdranch.android.translator.model.repository.Repository
-import com.bignerdranch.android.translator.model.repository.RepositoryImplementation
-import com.bignerdranch.android.translator.model.repository.RepositoryImplementationLocal
-import com.bignerdranch.android.translator.model.repository.RepositoryLocal
-import com.bignerdranch.android.translator.room.HistoryDataBase
-import com.bignerdranch.android.translator.view.history.HistoryInteractor
-import com.bignerdranch.android.translator.view.history.HistoryViewModel
+import com.bignerdranch.android.historyscreen.view.history.HistoryInteractor
+import com.bignerdranch.android.historyscreen.view.history.HistoryViewModel
+import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.repository.*
+import com.bignerdranch.android.repository.room.HistoryDataBase
+
 import com.bignerdranch.android.translator.view.main.MainInteractor
 import com.bignerdranch.android.translator.view.main.MainViewModel
 import org.koin.dsl.module

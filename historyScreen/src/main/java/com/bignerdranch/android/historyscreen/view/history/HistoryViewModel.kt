@@ -1,10 +1,11 @@
-package com.bignerdranch.android.translator.view.history
+package com.bignerdranch.android.historyscreen.view.history
 
 import androidx.lifecycle.LiveData
-import com.bignerdranch.android.translator.model.data.AppState
-import com.bignerdranch.android.translator.parseLocalSearchResults
-import com.bignerdranch.android.translator.viewmodel.BaseViewModel
+import com.bignerdranch.android.core.viewmodel.BaseViewModel
+import com.bignerdranch.android.historyscreen.parseLocalSearchResults
+import com.bignerdranch.android.model.data.AppState
 import kotlinx.coroutines.launch
+
 
 class HistoryViewModel(private val interactor: HistoryInteractor) :
     BaseViewModel<AppState>() {
@@ -30,7 +31,7 @@ class HistoryViewModel(private val interactor: HistoryInteractor) :
     }
 
     override fun onCleared() {
-        _mutableLiveData.value = AppState.Success(null)//Set View to original state in onStop
+        _mutableLiveData.value = AppState.Success(null)//TODO Workaround. Set View to original state
         super.onCleared()
     }
 }

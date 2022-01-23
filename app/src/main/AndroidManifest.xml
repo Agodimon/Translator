@@ -31,9 +31,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".view.history.HistoryActivity"
-            android:screenOrientation="fullSensor"/>
+
 
     </application>
 

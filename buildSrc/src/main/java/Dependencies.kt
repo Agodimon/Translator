@@ -26,8 +26,9 @@ object Modules {
 
 object Versions {
     //Design
-    const val appcompat = "1.1.0-rc01"
+    const val appcompat = "1.4.1"
     const val material = "1.0.0"
+    const val multidex = "1.0.3"
 
     //Kotlin
     const val core = "1.7.0"
@@ -52,9 +53,9 @@ object Versions {
     const val coil = "0.11.0"
 
     //Room
-    const val roomKtx = "2.3.0"
-    const val runtime = "2.3.0"
-    const val roomCompiler = "2.3.0"
+    const val roomKtx = "2.4.1"
+    const val runtime = "2.4.1"
+    const val roomCompiler = "2.4.1"
 
     //Test
     const val jUnit = "4.12"
@@ -65,6 +66,10 @@ object Versions {
 object Design {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val multidex = "com.android.support:multidex:${Versions.multidex}"
+
+
+
 }
 
 object Kotlin {
