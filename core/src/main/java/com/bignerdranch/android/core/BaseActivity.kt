@@ -1,17 +1,17 @@
-package com.bignerdranch.android.translator.view.base
+package com.bignerdranch.android.core
 
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.bignerdranch.android.translator.R
-import com.bignerdranch.android.translator.databinding.LoadingLayoutBinding
-import com.bignerdranch.android.translator.utils.network.isOnline
-import com.bignerdranch.android.translator.utils.ui.AlertDialogFragment
-import com.bignerdranch.android.translator.model.data.AppState
-import com.bignerdranch.android.translator.model.data.DataModel
-import com.bignerdranch.android.translator.viewmodel.BaseViewModel
-import com.bignerdranch.android.translator.viewmodel.Interactor
+import com.bignerdranch.android.core.databinding.LoadingLayoutBinding
+import com.bignerdranch.android.core.viewmodel.BaseViewModel
+import com.bignerdranch.android.core.viewmodel.Interactor
+import com.bignerdranch.android.model.data.AppState
+import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.utils.network.isOnline
+import com.bignerdranch.android.utils.ui.AlertDialogFragment
+
 
 private const val DIALOG_FRAGMENT_TAG = "74a54328-5d62-46bf-ab6b-cbf5d8c79522"
 

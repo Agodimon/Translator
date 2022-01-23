@@ -1,4 +1,4 @@
-package com.bignerdranch.android.translator.viewmodel
+package com.bignerdranch.android.core.viewmodel
 
 interface Interactor<T> {
 

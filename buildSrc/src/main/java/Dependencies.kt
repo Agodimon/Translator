@@ -30,8 +30,8 @@ object Versions {
     const val material = "1.0.0"
 
     //Kotlin
-    const val core = "1.6.0"
-    const val stdlib = "1.5.21"
+    const val core = "1.7.0"
+    const val stdlib = "1.6.10"
     const val coroutinesCore = "1.4.3"
     const val coroutinesAndroid = "1.4.3"
 

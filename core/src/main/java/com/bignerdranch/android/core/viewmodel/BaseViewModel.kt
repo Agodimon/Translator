@@ -1,8 +1,9 @@
-package com.bignerdranch.android.translator.viewmodel
+package com.bignerdranch.android.core.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bignerdranch.android.translator.model.data.AppState
+import com.bignerdranch.android.model.data.AppState
+
 import kotlinx.coroutines.*
 
 abstract class BaseViewModel<T : AppState>(
@@ -10,7 +11,7 @@ abstract class BaseViewModel<T : AppState>(
 ) : ViewModel() {
 
     protected val viewModelCoroutineScope = CoroutineScope(
-        Dispatchers.IO
+        Dispatchers.Main
                 + SupervisorJob()
                 + CoroutineExceptionHandler { _, throwable ->
             handleError(throwable)
