@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.core.viewmodel.BaseActivity
 import com.bignerdranch.android.historyscreen.view.history.HistoryActivity
 import com.bignerdranch.android.model.data.AppState
@@ -15,6 +16,8 @@ import com.bignerdranch.android.translator.utils.convertMeaningsToString
 import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
 import com.bignerdranch.android.utils.network.isOnline
+import com.bignerdranch.android.utils.ui.viewById
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.KoinScopeComponent
@@ -31,6 +34,8 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
     private lateinit var binding: ActivityMainBinding
     override lateinit var model: MainViewModel
     private val adapter: MainAdapter by lazy { MainAdapter(onListItemClickListener) }
+    private val mainActivityRecyclerview by viewById<RecyclerView>(R.id.main_activity_recyclerview)
+    private val searchFAB by viewById<FloatingActionButton>(R.id.search_fab)
     private val fabClickListener: View.OnClickListener =
         View.OnClickListener {
             val searchDialogFragment = SearchDialogFragment.newInstance()
@@ -100,8 +105,8 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
     }
 
     private fun initViews() {
-        binding.searchFab.setOnClickListener(fabClickListener)
-        binding.mainActivityRecyclerview.adapter = adapter
+        searchFAB.setOnClickListener(fabClickListener)
+        mainActivityRecyclerview.adapter = adapter
     }
 
 
