@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.bignerdranch.android.core.viewmodel.BaseActivity
-
 import com.bignerdranch.android.historyscreen.view.history.HistoryActivity
 import com.bignerdranch.android.model.data.AppState
 import com.bignerdranch.android.model.data.DataModel
@@ -16,12 +15,18 @@ import com.bignerdranch.android.translator.utils.convertMeaningsToString
 import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
 import com.bignerdranch.android.utils.network.isOnline
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.KoinScopeComponent
+import org.koin.core.component.getOrCreateScope
+import org.koin.core.scope.Scope
 
 
 private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG = "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
 
-class MainActivity : BaseActivity<AppState, MainInteractor>() {
+class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponent {
+
+    override val scope: Scope by getOrCreateScope()
 
     private lateinit var binding: ActivityMainBinding
     override lateinit var model: MainViewModel
@@ -89,7 +94,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         if (binding.mainActivityRecyclerview.adapter != null) {
             throw IllegalStateException("The ViewModel should be initialised first")
         }
-        val viewModel: MainViewModel by viewModel()
+        val viewModel: MainViewModel by inject()
         model = viewModel
         model.subscribe().observe(this@MainActivity, { renderData(it) })
     }
@@ -98,4 +103,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         binding.searchFab.setOnClickListener(fabClickListener)
         binding.mainActivityRecyclerview.adapter = adapter
     }
+
+
 }
