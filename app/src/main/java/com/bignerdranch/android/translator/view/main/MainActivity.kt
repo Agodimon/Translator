@@ -15,7 +15,7 @@ import com.bignerdranch.android.translator.databinding.ActivityMainBinding
 import com.bignerdranch.android.translator.utils.convertMeaningsToString
 import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
-import com.bignerdranch.android.utils.network.isOnline
+
 import com.bignerdranch.android.utils.ui.viewById
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.koin.android.ext.android.inject
@@ -58,7 +58,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
     private val onSearchClickListener: SearchDialogFragment.OnSearchClickListener =
         object : SearchDialogFragment.OnSearchClickListener {
             override fun onClick(searchWord: String) {
-                isNetworkAvailable = isOnline(applicationContext)
+
                 if (isNetworkAvailable) {
                     model.getData(searchWord, isNetworkAvailable)
                 } else {
