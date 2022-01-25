@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bignerdranch.android.core.R
 import com.bignerdranch.android.core.databinding.LoadingLayoutBinding
 import com.bignerdranch.android.model.data.AppState
-import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.model.data.userdata.DataModel
+
 import com.bignerdranch.android.utils.network.OnlineLiveData
 
 import com.bignerdranch.android.utils.ui.AlertDialogFragment

@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.core.viewmodel.BaseActivity
 import com.bignerdranch.android.historyscreen.view.history.HistoryActivity
 import com.bignerdranch.android.model.data.AppState
-import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.model.data.userdata.DataModel
+
 import com.bignerdranch.android.translator.R
 import com.bignerdranch.android.translator.databinding.ActivityMainBinding
-import com.bignerdranch.android.translator.utils.convertMeaningsToString
+import com.bignerdranch.android.translator.utils.convertMeaningsToSingleString
+
 import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
 
@@ -48,9 +50,9 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
                 startActivity(
                     DescriptionActivity.getIntent(
                         this@MainActivity,
-                        data.text!!,
-                        convertMeaningsToString(data.meanings!!),
-                        data.meanings!![0].imageUrl
+                        data.text,
+                        convertMeaningsToSingleString(data.meanings),
+                        data.meanings[0].imageUrl
                     )
                 )
             }
@@ -58,7 +60,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
     private val onSearchClickListener: SearchDialogFragment.OnSearchClickListener =
         object : SearchDialogFragment.OnSearchClickListener {
             override fun onClick(searchWord: String) {
-
                 if (isNetworkAvailable) {
                     model.getData(searchWord, isNetworkAvailable)
                 } else {
@@ -96,10 +97,11 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
     }
 
     private fun iniViewModel() {
-        if (binding.mainActivityRecyclerview.adapter != null) {
+        if (mainActivityRecyclerview.adapter != null) {
             throw IllegalStateException("The ViewModel should be initialised first")
         }
         val viewModel: MainViewModel by inject()
+
         model = viewModel
         model.subscribe().observe(this@MainActivity, { renderData(it) })
     }
@@ -108,6 +110,4 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), KoinScopeComponen
         searchFAB.setOnClickListener(fabClickListener)
         mainActivityRecyclerview.adapter = adapter
     }
-
-
 }

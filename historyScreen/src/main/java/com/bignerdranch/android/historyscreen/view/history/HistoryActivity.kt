@@ -4,7 +4,8 @@ import android.os.Bundle
 import com.bignerdranch.android.core.viewmodel.BaseActivity
 import com.bignerdranch.android.historyscreen.databinding.ActivityHistoryBinding
 import com.bignerdranch.android.model.data.AppState
-import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.model.data.userdata.DataModel
+
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.KoinScopeComponent
