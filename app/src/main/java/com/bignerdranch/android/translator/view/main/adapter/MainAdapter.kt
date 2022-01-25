@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.model.data.DataModel
 import com.bignerdranch.android.translator.R
-import com.bignerdranch.android.translator.convertMeaningsToString
-import com.bignerdranch.android.translator.model.data.DataModel
+import com.bignerdranch.android.translator.utils.convertMeaningsToString
+
 import kotlinx.android.synthetic.main.activity_main_recyclerview_item.view.*
 
 class MainAdapter(private var onListItemClickListener: OnListItemClickListener) :

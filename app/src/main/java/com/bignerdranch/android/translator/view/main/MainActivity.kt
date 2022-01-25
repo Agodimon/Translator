@@ -5,17 +5,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.lifecycle.Observer
+import com.bignerdranch.android.core.viewmodel.BaseActivity
+
+import com.bignerdranch.android.historyscreen.view.history.HistoryActivity
+import com.bignerdranch.android.model.data.AppState
+import com.bignerdranch.android.model.data.DataModel
 import com.bignerdranch.android.translator.R
-import com.bignerdranch.android.translator.convertMeaningsToString
 import com.bignerdranch.android.translator.databinding.ActivityMainBinding
-import com.bignerdranch.android.translator.model.data.AppState
-import com.bignerdranch.android.translator.model.data.DataModel
-import com.bignerdranch.android.translator.utils.network.isOnline
-import com.bignerdranch.android.translator.view.base.BaseActivity
+import com.bignerdranch.android.translator.utils.convertMeaningsToString
 import com.bignerdranch.android.translator.view.descriptionscreen.DescriptionActivity
-import com.bignerdranch.android.translator.view.history.HistoryActivity
 import com.bignerdranch.android.translator.view.main.adapter.MainAdapter
+import com.bignerdranch.android.utils.network.isOnline
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
                         this@MainActivity,
                         data.text!!,
                         convertMeaningsToString(data.meanings!!),
-                        data.meanings[0].imageUrl
+                        data.meanings!![0].imageUrl
                     )
                 )
             }
@@ -91,7 +91,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         }
         val viewModel: MainViewModel by viewModel()
         model = viewModel
-        model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
+        model.subscribe().observe(this@MainActivity, { renderData(it) })
     }
 
     private fun initViews() {
