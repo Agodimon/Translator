@@ -1,5 +1,7 @@
 package com.bignerdranch.android.model.data
 
+import com.bignerdranch.android.model.data.userdata.DataModel
+
 sealed class AppState {
 
     data class Success(val data: List<DataModel>?) : AppState()

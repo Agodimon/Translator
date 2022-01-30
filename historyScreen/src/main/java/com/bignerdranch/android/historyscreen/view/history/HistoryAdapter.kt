@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.historyscreen.R
-import com.bignerdranch.android.model.data.DataModel
+import com.bignerdranch.android.model.data.userdata.DataModel
+
 
 import kotlinx.android.synthetic.main.activity_history_recyclerview_item.view.*
 
