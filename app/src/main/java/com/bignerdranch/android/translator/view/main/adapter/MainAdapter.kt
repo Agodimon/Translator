@@ -1,17 +1,14 @@
 package com.bignerdranch.android.translator.view.main.adapter
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.model.data.userdata.DataModel
-
 import com.bignerdranch.android.translator.R
 import com.bignerdranch.android.translator.utils.convertMeaningsToSingleString
-
-
-import kotlinx.android.synthetic.main.activity_main_recyclerview_item.view.*
 
 class MainAdapter(private var onListItemClickListener: OnListItemClickListener) :
     RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
